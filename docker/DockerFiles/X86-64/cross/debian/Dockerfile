@@ -13,9 +13,9 @@ RUN apt update && apt install -y git \
 	ccache \
 	device-tree-compiler
 RUN apt update && apt install -y bc \
-	curl
+	curl \
+	u-boot-tools
 
 COPY inside-script.sh .
 RUN chmod a+rx /inside-script.sh
-ENTRYPOINT /bin/bash
-CMD ./inside-script.sh
+ENTRYPOINT ./inside-script.sh
