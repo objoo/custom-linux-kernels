@@ -1,0 +1,14 @@
+FROM debian
+RUN apt update
+RUN apt install -y git subversion
+RUN apt install -y gcc make 
+RUN apt install -y ncurses-dev
+RUN apt install -y autoconf automake
+RUN apt install -y gcc-arm-none-eabi
+RUN apt install -y flex bison texinfo
+RUN apt install -y ccache
+RUN git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+RUN git clone git://git.denx.de/u-boot.git
+WORKDIR u-boot
+RUN make
+ENTRYPOINT ["bash"]
