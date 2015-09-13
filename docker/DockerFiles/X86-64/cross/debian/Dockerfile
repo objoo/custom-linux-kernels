@@ -16,6 +16,6 @@ RUN apt update && apt install -y bc \
 	curl \
 	u-boot-tools
 
-COPY inside-script.sh .
-RUN chmod a+rx /inside-script.sh
-ENTRYPOINT ./inside-script.sh
+COPY INSIDE/*.sh .
+RUN chmod a+rx *.sh
+ENTRYPOINT ./inside-script-latest-lts.sh
