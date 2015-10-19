@@ -23,9 +23,8 @@ rm -rf /RESULT/*
 cp u-boot-sunxi-with-spl.bin /RESULT
 
 cd /GIT/linux-stable
-git checkout master
-git pull
 git checkout linux-4.2.y
+git pull
 
 curl -L --retry 20 --retry-delay 2 https://raw.githubusercontent.com/objoo/custom-linux-kernels/master/config/ARM/bananapi/config-4.2.y -o .config
 make -j3  ARCH=arm CROSS_COMPILE="ccache arm-none-eabi-" LOADADDR=0x40008000 uImage modules dtbs
