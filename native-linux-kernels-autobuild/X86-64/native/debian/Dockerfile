@@ -1,12 +1,7 @@
 FROM debian
-ENV HTTP_PROXY http://cache.univ-nantes.fr:3128
-ENV HTTPS_PROXY http://cache.univ-nantes.fr:3128
-ENV FTP_PROXY http://cache.univ-nantes.fr:3128
-ENV http_proxy=$HTTP_PROXY
-ENV https_proxy=$HTTPS_PROXY
-ENV ftp_proxy=$FTP_PROXY 
+MAINTAINER Yann Dupont <Yann.Dupont@univ-nantes.fr>
+
 RUN apt update && apt install -y git \
-	subversion \
 	gcc \
 	make  \
 	ncurses-dev \
@@ -28,6 +23,18 @@ RUN ln -s /usr/bin/ccache /usr/local/bin/cc++
 
 COPY INSIDE/build-script.sh .
 RUN chmod a+rx build-script.sh
+
+ENV http_proxy $http_proxy
+ENV https_proxy $https_proxy
+ENV ftp_proxy $ftp_proxy
+ENV socks_proxy $socks_proxy
+ENV no_proxy $no_proxy
+
+ENV HTTP_PROXY $HTTP_PROXY
+ENV HTTPS_PROXY $HTTPS_PROXY
+ENV FTP_PROXY $FTP_PROXY 
+ENV SOCKS_PROXY $SOCKS_PROXY
+ENV NO_PROXY $NO_PROXY
 
 ENTRYPOINT ["./build-script.sh"]
 CMD ["4.1.y"]
