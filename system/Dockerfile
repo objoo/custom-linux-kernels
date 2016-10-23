@@ -36,5 +36,9 @@ ENV FTP_PROXY $FTP_PROXY
 ENV SOCKS_PROXY $SOCKS_PROXY
 ENV NO_PROXY $NO_PROXY
 
+## for cross compilation
+
+apt-install -y gcc-arm-none-eabi
+
 ENTRYPOINT ["./build-script.sh"]
 CMD ["linux-4.4.y"]
