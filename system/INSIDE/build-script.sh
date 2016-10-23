@@ -25,7 +25,7 @@ if [ -d objoo-linux-kernels-configs ] ; then
    git clone https://github.com/objoo/custom-linux-kernel-configs.git
 fi
 
-MYBRANCH=my-$BRANCH-$ARCH-$PLATFORM`date +%s`
+MYBRANCH=my-$BRANCH-$DESTARCH-$PLATFORM`date +%s`
 
 cd /GIT/custom-linux-kernel-configs
 git pull
@@ -39,7 +39,7 @@ git checkout $MYBRANCH
 ccache -F 0
 ccache -M 0
 
-for iteration in  /GIT/custom-linux-kernel-configs/$BRANCH-$ARCH-$PLATFORM/*
+for iteration in  /GIT/custom-linux-kernel-configs/$BRANCH-$DESTARCH-$PLATFORM/*
 do
   cp $iteration .config
 #  /usr/bin/make-kpkg -j$NBCPU --initrd kernel_image kernel_headers
