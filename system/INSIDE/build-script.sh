@@ -10,6 +10,8 @@ FORMAT=$4
 
 ARCH=`/usr/bin/arch`
 
+echo "ARCH = $ARCH"
+echo "DESTARCH = $DESTARCH"
 mkdir /GIT
 cd /GIT
 

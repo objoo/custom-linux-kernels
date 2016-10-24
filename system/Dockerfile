@@ -21,8 +21,7 @@ RUN ln -s /usr/bin/ccache /usr/local/bin/g++
 RUN ln -s /usr/bin/ccache /usr/local/bin/cc
 RUN ln -s /usr/bin/ccache /usr/local/bin/cc++
 
-COPY INSIDE/*.sh ./
-RUN chmod a+rx *.sh
+## Env when behind a proxy
 
 ENV http_proxy $http_proxy
 ENV https_proxy $https_proxy
@@ -38,7 +37,11 @@ ENV NO_PROXY $NO_PROXY
 
 ## for cross compilation
 
-apt-install -y gcc-arm-none-eabi
+RUN apt install -y gcc-arm-none-eabi u-boot-tools
+
+
+COPY INSIDE/*.sh ./
+RUN chmod a+rx *.sh
 
 ENTRYPOINT ["./build-script.sh"]
 CMD ["linux-4.4.y"]
