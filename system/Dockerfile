@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:stretch
 MAINTAINER Yann Dupont <Yann.Dupont@univ-nantes.fr>
 
 RUN apt update && apt dist-upgrade -y && apt install -y git \
@@ -13,7 +13,8 @@ RUN apt update && apt dist-upgrade -y && apt install -y git \
 	ccache \
 	device-tree-compiler \
 	bc \
-	kernel-package \
+	dpkg-dev \
+	lsb-release \
 	libssl-dev
 
 RUN ln -s /usr/bin/ccache /usr/local/bin/gcc
