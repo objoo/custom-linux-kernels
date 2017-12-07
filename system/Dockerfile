@@ -1,4 +1,6 @@
-FROM debian:stretch
+#FROM debian:stretch
+FROM debian:unstable
+
 MAINTAINER Yann Dupont <Yann.Dupont@univ-nantes.fr>
 
 RUN apt update && apt dist-upgrade -y && apt install -y git \
@@ -40,6 +42,9 @@ ENV NO_PROXY $NO_PROXY
 
 RUN apt install -y gcc-arm-none-eabi u-boot-tools
 
+## Needed for debian unstable ?
+
+RUN apt install -y libelf-dev
 
 COPY INSIDE/*.sh ./
 RUN chmod a+rx *.sh

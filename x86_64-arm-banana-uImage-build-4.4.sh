@@ -4,7 +4,7 @@
 ##PLATFORM=$3
 ##FORMAT=$4
 
-BRANCH="linux-4.9.y"
+BRANCH="linux-4.4.y"
 pushd .
 cd ./system
 ./common-build.sh $BRANCH arm BANANA UIMAGE

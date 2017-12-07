@@ -4,8 +4,8 @@
 ##PLATFORM=$3
 ##FORMAT=$4
 
-BRANCH="linux-4.9.y"
+BRANCH="linux-3.18.y"
 pushd .
 cd ./system
-./common-build.sh $BRANCH arm BANANA UIMAGE
+./common-build.sh $BRANCH x86_64 PC DEB
 popd
