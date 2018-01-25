@@ -43,6 +43,9 @@ ccache -M 0
 
 for iteration in  /GIT/custom-linux-kernel-configs/$BRANCH-$DESTARCH-$PLATFORM/*
 do
+  echo "-----------"
+  echo "---BUILDING $iteration"
+  echo "-----------"
   cp $iteration .config
 #  /usr/bin/make-kpkg -j$NBCPU --initrd kernel_image kernel_headers
   /script-$FORMAT-$ARCH-$DESTARCH-$PLATFORM.sh
